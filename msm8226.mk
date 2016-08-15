@@ -107,5 +107,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.msm8226
 
+# Default Properties
+ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0 ro.adb.secure=0 persist.sys.usb.config=mtp
+
 # common msm8226
 $(call inherit-product, device/samsung/qcom-common/qcom-common.mk)
