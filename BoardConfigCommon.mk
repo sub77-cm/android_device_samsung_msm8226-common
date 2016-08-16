@@ -20,7 +20,15 @@ TARGET_BOARD_PLATFORM := msm8226
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno305
 
 # Architecture
+TARGET_ARCH := arm
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_MEMCPY_BASE_OPT_DISABLE := true
 TARGET_CPU_VARIANT := krait
+MALLOC_IMPL := dlmalloc
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
@@ -35,7 +43,16 @@ BOARD_CHARGING_CMDLINE_VALUE := "true"
 
 # Display
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
-OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
+
+# Graphics
+HAVE_ADRENO_SOURCE := false
+OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
+TARGET_CONTINUOUS_SPLASH_ENABLED := true
+TARGET_USES_C2D_COMPOSITION := true
+TARGET_USES_ION := true
+USE_OPENGL_RENDERER := true
+VSYNC_EVENT_PHASE_OFFSET_NS := 2500000
+SF_VSYNC_EVENT_PHASE_OFFSET_NS := 0000000
 
 # Shader cache config options
 # Maximum size of the  GLES Shaders that can be cached for reuse.
